@@ -309,7 +309,7 @@
             <ol>
                 <li>Cloner le depot:</li>
             </ol>
-            <pre><code>git clone https://sidikiba12.github.io/excuse_dev/
+
 cd EXCUSE_DEV</code></pre>
             
             <ol start="2">
@@ -356,7 +356,7 @@ nano includes/config.php</code></pre>
        
                 <li>Email : <a href="mailto:contact@example.com">cams3932@gmail.com</a></li>
                 <li>GitHub : <a href="github">sidikiba12</a></li>
-                <li>GiT : <a href="sidikiba12" target="_blank">https://sidikiba12.github.io/excuse_dev/</a></li>
+                
             </ul>
         </section>
     </div>
