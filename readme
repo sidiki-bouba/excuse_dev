@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXCUSE_DEV - Générateur d'excuses pour développeurs</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 20px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .badge-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .badge-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .badge-dark {
+            background-color: var(--dark-color);
+            color: rgb(55, 204, 214);
+        }
+        
+        section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        h2 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        code {
+            background-color: var(--light-color);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+        }
+        
+        pre {
+            background-color: var(--light-color);
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .tree {
+            font-family: monospace;
+            line-height: 1.5;
+            background-color: var(--light-color);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+        
+        .tree .folder {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        .tree .file {
+            color: var(--dark-color);
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .tech-card {
+            background-color: white;
+            border: 1px solid #dddddd;
+            border-radius: 6px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tech-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            color: #777;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>EXCUSE_DEV</h1>
+            <p>Générateur d'excuses humoristiques pour developpeurs - Parfait pour les temps d'attente (connexion, maintenance, etc.)</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section id="description">
+            <h2>Description</h2>
+            <p>EXCUSE_DEV est un générateur de phrases humoristiques ou semi-sérieuses specialement concu pour les developpeurs. Parfait pour :</p>
+            <ul>
+                <li>Faire patienter les utilisateurs pendant les temps de chargement</li>
+                <li>Expliquer des retards de livraison avec humour</li>
+                <li>Annoncer des maintenances techniques</li>
+                <li>Ajouter une touche fun aux messages d'erreur</li>
+            </ul>
+        </section>
+        
+        <section id="features">
+            <h2>Fonctionnalités</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>Généraration aleatoire</h4>
+                    <p>Excuses uniques à chaque fois</p>
+                </div>
+                <div class="tech-card">
+                    <h4>Multi-catégories</h4>
+                    <p>Humoristiques, techniques, sérieuses</p>
+                </div>
+                <div class="tech-card">
+                    <h4> Codes HTTP</h4>
+                    <p>Explications des codes d'etat</p>
+                </div>
+                <div class="tech-card">
+                    <h4>Interface simple</h4>
+                    <p>Intuitive et responsive</p>
+                </div>
+                <div class="tech-card">
+                    <h4>Base de données</h4>
+                    <p>Gestion centralisées des excuses</p>
+                </div>
+                <div class="tech-card">
+                    <h4>Extensible</h4>
+                    <p>Ajoutez vos propres excuses</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="technologies">
+            <h2>Technologies utilisées</h2>
+            
+            <h3>Frontend</h3>
+            <p>
+                <span class="badge badge-primary">HTML5</span>
+                <span class="badge badge-primary">CSS3</span>
+                <span class="badge badge-primary">Bootstrap</span>
+                <span class="badge badge-primary">JavaScript</span>
+            </p>
+            
+            <h3>Backend</h3>
+            <p>
+                <span class="badge badge-secondary">PHP 8</span>
+            </p>
+            
+            <h3>Base de données</h3>
+            <p>
+                <span class="badge badge-dark">MySQL</span>
+            </p>
+        </section>
+        
+        <section id="structure">
+            <h2>Structure du projet</h2>
+            <div class="tree">
+                <div><span class="folder">EXCUSE_DEV/</span></div>
+                <div><span class="folder">css/</span> <span class="file">Fichiers CSS (Bootstrap)</span></div>
+                <div><span class="folder">js/</span> <span class="file">Fichiers JavaScript (Bootstrap)</span></div>
+                <div> <span class="file">config.php</span> <span class="file">Configuration de la base de donnÃ©es</span></div>
+                <div><span class="file">app.js</span></div>
+                <div> <span class="file">excuse.php</span> <span class="file">Endpoint API pour les excuses</span></div>
+                <div> <span class="file">http-code.php</span> <span class="file">les codes HTTP</span></div>
+                <div> <span class="file">add-excuse.php</span> <span class="file">Ajout d'une nouvelle excuse</span></div>
+                <div> <span class="file">error.php</span> <span class="file">Page d'erreur</span></div>
+                <div> <span class="file">index.php</span> <span class="file">Page d'accueil</span></div>
+                <div><span class="file">lost.php</span> <span class="file">Page 404</span></div>
+                <div><span class="file">database.sql</span> <span class="file">Export de la structure de la base de donnÃ©es</span></div>
+                <div><span class="file">readme</span> <span class="file">Guide du projet</span></div>
+            </div>
+        </section>
+        
+        <section id="installation">
+            <h2>Installation</h2>
+            
+          
+            
+            <h3>Instructions</h3>
+            <ol>
+                <li>Cloner le depot:</li>
+            </ol>
+            <pre><code>git clone https://sidikiba12.github.io/excuse_dev/
+cd EXCUSE_DEV</code></pre>
+            
+            <ol start="2">
+                <li>Configurer la base de données :</li>
+            </ol>
+            <pre><code># Importer la structure
+mysql -u username -p database_name &lt; database.sql
+
+# Configurer les accès
+nano includes/config.php</code></pre>
+            
+            <ol start="3">
+                <li>Lancer le serveur :</li>
+           
+            
+            <p>utilisez le serveur local WAMP</p>
+        </section>
+        
+        <section id="usage">
+            <h2>Utilisation</h2>
+            
+            <h3>Page d'accueil (index.php)</h3>
+            <p>L'interface principale permet de :</p>
+            <ul>
+                <li>Génnérer des excuses aleatoires</li>
+                <li>Filtrer par categorie</li>
+                <li>Consulter les codes HTTP</li>
+            </ul>
+            
+            <h3>API Endpoints</h3>
+            <p><strong>Générer une excuse :</strong></p>
+            <pre><code>GET /excuse.php?category=technical</code></pre>
+            
+            <p><strong>Obtenir un code HTTP :</strong></p>
+            <pre><code>GET /http-code.php?code=418</code></pre>
+            
+            <h3>Ajouter une excuse</h3>
+            <p>Via le formulaire dans <code>add-excuse.php</code> ou directement en base de données.</p>
+        </section>
+        
+        <section id="demo">
+            <h2>Démonstration</h2>
+            <p>Video de démonstration disponible : <a href="https://drive.google.com/file/d/1epE6TpNcH658Mxh8g15HCka3MTM23Pnq/view?usp=drivesdk" target="_blank">Lien vers la video</a></p>
+       
+                <li>Email : <a href="mailto:contact@example.com">cams3932@gmail.com</a></li>
+                <li>GitHub : <a href="github">sidikiba12</a></li>
+                <li>GiT : <a href="sidikiba12" target="_blank">https://sidikiba12.github.io/excuse_dev/</a></li>
+            </ul>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>EXCUSE_DEV - Générarateur d'excuses pour developpeurs - © 2025</p>
+        </div>
+    </footer>
+</body>
+</html>
